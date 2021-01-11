@@ -1,13 +1,14 @@
 const video = document.querySelector('.video');
 const progressRange = document.querySelector('.progress-range');
 const progressBar = document.querySelector('.progress-bar');
-const playBtn = document.getElementById('play-button'); // why can this not be a querySelector with class?
+const playBtn = document.getElementById('play-button');
 const volumeIcon = document.getElementById('volume-icon');
 const volumeRange = document.querySelector('.volume-range');
 const volumeBar = document.querySelector('.volume-bar');
 const currentTime = document.querySelector('.time-elapsed');
 const duration = document.querySelector('.time-duration');
 const fullscreenBtn = document.querySelector('.fullscreen');
+const speed = document.querySelector('.player-speed');
 
 //* Play & Pause ----------------------------------- //
 
@@ -54,7 +55,6 @@ function setProgressBar(e) {
 }
 
 //* Volume Controls --------------------------- //
-
 let lastVolume = 1;
 // volume bar
 function changeVolume(e) {
@@ -64,7 +64,7 @@ function changeVolume(e) {
     volume = 0;
   }
   if (volume > 0.9) {
-    volumne = 1;
+    volume = 1;
   }
   volumeBar.style.width = `${volume * 100}%`;
   video.volume = volume;
@@ -108,6 +108,10 @@ function toggleMute() {
 
 //* Change Playback Speed -------------------- //
 
+function changeSpeed(e) {
+  video.playbackRate = e.srcElement.value;
+}
+
 //* Fullscreen ------------------------------- //
 
 /* Event listeners */
@@ -119,3 +123,4 @@ video.addEventListener('ended', showPlayIcon);
 progressRange.addEventListener('click', setProgressBar);
 volumeRange.addEventListener('click', changeVolume);
 volumeIcon.addEventListener('click', toggleMute);
+speed.addEventListener('change', changeSpeed);
