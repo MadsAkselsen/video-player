@@ -97,7 +97,7 @@ function toggleMute() {
     video.volume = lastVolume;
     volumeBar.style.width = `${lastVolume * 100}%`;
 
-    if (video.volume > 0.7) {
+    if (video.volume >= 0.7) {
       volumeIcon.classList.add('fas', 'fa-volume-up');
     } else if (video.volume < 0.7 && video.volume > 0) {
       volumeIcon.classList.add('fas', 'fa-volume-down');
