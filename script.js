@@ -72,7 +72,7 @@ function changeVolume(e) {
 
   // change icon depending on volume
   volumeIcon.className = ''; // remove class names
-  if (volume > 0.7) {
+  if (volume >= 0.7) {
     volumeIcon.classList.add('fas', 'fa-volume-up');
   } else if (volume < 0.7 && volume > 0) {
     volumeIcon.classList.add('fas', 'fa-volume-down');
