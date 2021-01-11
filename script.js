@@ -49,7 +49,7 @@ function updateProgress() {
 
 // click to seek within the video
 function setProgressBar(e) {
-  const barClickX = (e.offsetX / this.clientWidth) * 100; // where we're clicking on the progress-range divided by the container length. Then multiplied by 100 so we find the percentage of where we click on the progress-range
+  const barClickX = (e.offsetX / this.clientWidth) * 100; // where we're clicking on the progress-range divided by the container length. Then multiplied by 100 so we find the percentage of where we click on the progress-range.
   progressBar.style.width = `${barClickX}%`;
   const newCurrentTime = (video.duration / 100) * barClickX;
   video.currentTime = `${newCurrentTime}`;
@@ -139,7 +139,7 @@ function closeFullscreen() {
     /* IE11 */
     document.msExitFullscreen();
   }
-  video.classList.remove('video-fullscreen'); // seems like this doesnt do anything. But should be tested in other screen resoluations and browsers before removing
+  video.classList.remove('video-fullscreen'); // seems like this doesnt do anything. But should be tested in other screen resoluations and browsers before removing. same in the openFullscreen function above
 }
 
 let fullscreen = false;
